@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Finances")
+@Table(name = "finances")
 public class FinanceModel implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -113,6 +113,10 @@ public class FinanceModel implements Serializable {
 
     public void setTotalfree(int totalfree) {
         this.totalfree = totalfree;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public UUID getId() {

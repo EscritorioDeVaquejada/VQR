@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 @Entity
-@Table(name="Tickets")
+@Table(name="tickets")
 public class TicketModel implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -120,6 +120,10 @@ public class TicketModel implements Serializable {
 
     public void setRepresentation(String representation) {
         this.representation = representation;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public Boolean getBoiTv() {

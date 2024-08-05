@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-@Table(name ="Events")
+@Table(name ="events")
 @Entity
 public class EventModel implements Serializable {
     @Serial
@@ -177,5 +177,6 @@ public class EventModel implements Serializable {
     public void setTickets(List<TicketModel> tickets) {
         this.tickets = tickets;
     }
+
 
 }

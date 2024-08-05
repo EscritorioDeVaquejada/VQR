@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-@Table(name ="Clients")
+@Table(name ="clients")
 @Entity
 public class ClientModel implements Serializable {
     @Serial
@@ -89,5 +89,9 @@ public class ClientModel implements Serializable {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 }
