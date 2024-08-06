@@ -13,19 +13,24 @@ public class ClientModel implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     @Id @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name="client_id")
+    @Column(name = "client_id")
     private UUID id;
+    @Column(name = "name")
     private String name;
-    private String number;
+    @Column(name = "contact_number")
+    private String contactNumber;
+    @Column(name = "email")
     private String email;
+    @Column(name = "events")
     @OneToMany(mappedBy = "owner")
     private List<EventModel> events;
+    @Column(name = "address")
     @Embedded
     private Address address;
 
-    public ClientModel(String name, String number, String email, List<EventModel> events, Address address) {
+    public ClientModel(String name, String contactNumber, String email, List<EventModel> events, Address address) {
         this.name = name;
-        this.number = number;
+        this.contactNumber = contactNumber;
         this.email = email;
         this.events = events;
         this.address = address;
@@ -39,12 +44,12 @@ public class ClientModel implements Serializable {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
         ClientModel that = (ClientModel) object;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(number, that.number) && Objects.equals(email, that.email) && Objects.equals(events, that.events) && Objects.equals(address, that.address);
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(contactNumber, that.contactNumber) && Objects.equals(email, that.email) && Objects.equals(events, that.events) && Objects.equals(address, that.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, number, email, events, address);
+        return Objects.hash(id, name, contactNumber, email, events, address);
     }
 
     public UUID getId() {
@@ -67,12 +72,12 @@ public class ClientModel implements Serializable {
         this.email = email;
     }
 
-    public String getNumber() {
-        return number;
+    public String getContactNumber() {
+        return contactNumber;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
     public List<EventModel> getEvents() {

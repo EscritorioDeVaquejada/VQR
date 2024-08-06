@@ -16,12 +16,12 @@ public class PermissionModel implements GrantedAuthority, Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "permission_id")
     private UUID id;
+    @Column(name = "description")
     private String description;
 
-    public PermissionModel(){
-
-    }
+    public PermissionModel(){}
 
     @Override
     public String getAuthority() {

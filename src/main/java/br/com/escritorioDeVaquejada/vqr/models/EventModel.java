@@ -17,13 +17,21 @@ public class EventModel implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "event_id")
     private UUID id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "start_passwords")
     private int startPasswords;
+    @Column(name = "date_time")
     private LocalDateTime dateTime;
+    @Column(name = "is_finished")
     private Boolean isFinished;
+    @Column(name = "default_ticket_price")
     private double defaultTicketPrice;
+    @Column(name = "price_of_boi_tv_anticipated")
     private double priceOfBoiTVAnticipated;
+    @Column(name = "price_of_boi_tv_purchased_on_demand")
     private double priceOfBoiTvPurchasedOnDemand;
+    @Column(name = "address")
     @Embedded
     private Address address;
     @ManyToOne
@@ -31,6 +39,7 @@ public class EventModel implements Serializable {
     private ClientModel owner;
     @OneToMany(mappedBy = "event")
     List<TicketModel> tickets;
+    //todo: verificar se o nome do campo id de finanças no DB está gramaticamente correto
     @OneToOne()
     @JoinColumn(name = "financa_id")
     private FinanceModel financialReport;
@@ -177,6 +186,5 @@ public class EventModel implements Serializable {
     public void setTickets(List<TicketModel> tickets) {
         this.tickets = tickets;
     }
-
 
 }

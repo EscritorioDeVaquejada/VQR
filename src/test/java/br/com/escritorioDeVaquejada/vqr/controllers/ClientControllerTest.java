@@ -41,7 +41,7 @@ class ClientControllerTest {
         newClient.setName("NameTest");
         newClient.setAddress(new Address("StateTest", "CityTest"));
         newClient.setEmail("teste@gmail.com");
-        newClient.setNumber("99999999999");
+        newClient.setContactNumber("99999999999");
     }
 
     @Test
@@ -105,9 +105,9 @@ class ClientControllerTest {
     }
 
     @Test
-    @DisplayName("Should throw a BadRequestException because the number field is null")
+    @DisplayName("Should throw a BadRequestException because the contactNumber field is null")
     void saveClientWithOnlyIncorrectNumberAttribute(){
-        newClient.setNumber(null);
+        newClient.setContactNumber(null);
 
         when(bindingResult.hasErrors()).thenReturn(true);
 
@@ -119,7 +119,7 @@ class ClientControllerTest {
     @Test
     @DisplayName("Should throw a BadRequestException because all fields with validation are null")
     void saveClientWithAllIncorrectData(){
-        newClient.setNumber(null);
+        newClient.setContactNumber(null);
         newClient.setName(null);
         newClient.setAddress(null);
 

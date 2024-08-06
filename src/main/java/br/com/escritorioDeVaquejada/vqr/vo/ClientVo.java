@@ -13,7 +13,7 @@ public class ClientVo {
     @NotEmpty
     private String name;
     @NotEmpty
-    private String number;
+    private String contactNumber;
     private String email;
     @NotNull @Valid
     private Address address;
@@ -23,12 +23,12 @@ public class ClientVo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ClientVo clientVo = (ClientVo) o;
-        return Objects.equals(id, clientVo.id) && Objects.equals(name, clientVo.name) && Objects.equals(number, clientVo.number) && Objects.equals(email, clientVo.email) && Objects.equals(address, clientVo.address);
+        return Objects.equals(id, clientVo.id) && Objects.equals(name, clientVo.name) && Objects.equals(contactNumber, clientVo.contactNumber) && Objects.equals(email, clientVo.email) && Objects.equals(address, clientVo.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, number, email, address);
+        return Objects.hash(id, name, contactNumber, email, address);
     }
 
     public ClientVo() {
@@ -50,12 +50,12 @@ public class ClientVo {
         this.name = name;
     }
 
-    public String getNumber() {
-        return number;
+    public String getContactNumber() {
+        return contactNumber;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
     public String getEmail() {

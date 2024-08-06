@@ -47,7 +47,7 @@ class ClientServicesImplementationTest {
         clientVo = new ClientVo();
         clientVo.setAddress(address);
         clientVo.setEmail("String email");
-        clientVo.setNumber("123");
+        clientVo.setContactNumber("123");
         clientVo.setName("joao");
         clientModel= new ClientModel("joao", "123", "String email", null, null);
 
@@ -64,7 +64,7 @@ class ClientServicesImplementationTest {
         ClientVo clientVoWithoutName = new ClientVo();
         clientVoWithoutName.setAddress(address);
         clientVoWithoutName.setEmail("String email");
-        clientVoWithoutName.setNumber("123");
+        clientVoWithoutName.setContactNumber("123");
 
         when(mapper.parseObject(clientVoWithoutName, ClientModel.class)).thenThrow(new ConstraintViolationException(null));
 
