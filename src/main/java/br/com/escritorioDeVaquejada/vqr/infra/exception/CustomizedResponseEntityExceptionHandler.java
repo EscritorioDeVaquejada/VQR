@@ -1,6 +1,7 @@
 package br.com.escritorioDeVaquejada.vqr.infra.exception;
 
 import br.com.escritorioDeVaquejada.vqr.exceptions.BadRequestException;
+import br.com.escritorioDeVaquejada.vqr.exceptions.InvalidJwtAuthenticationException;
 import br.com.escritorioDeVaquejada.vqr.exceptions.ResourceNotFoundException;
 import br.com.escritorioDeVaquejada.vqr.dtos.ResponseExceptionDto;
 import org.springframework.http.HttpStatus;
@@ -45,5 +46,14 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
                 new Date(),
                 webRequest.getDescription(false),
                 exception.getMessage()), HttpStatus.BAD_REQUEST);
+    }
+    @ExceptionHandler(InvalidJwtAuthenticationException.class)
+    private ResponseEntity<ResponseExceptionDto> handlerInvalidJwtAuthenticationExceptions(
+            Exception exception, WebRequest webRequest){
+        logger.info("Exception lanced");
+        return new ResponseEntity<>(new ResponseExceptionDto(
+                new Date(),
+                webRequest.getDescription(false),
+                exception.getMessage()), HttpStatus.FORBIDDEN);
     }
 }
