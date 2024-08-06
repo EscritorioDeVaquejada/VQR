@@ -15,11 +15,14 @@ import java.util.UUID;
 
 @Service
 public class ClientServicesImplementation implements ClientServices {
+    private final ClientRepository clientRepository;
+    private final Mapper mapper;
 
     @Autowired
-    private ClientRepository clientRepository;
-    @Autowired
-    private Mapper mapper;
+    public ClientServicesImplementation(ClientRepository clientRepository, Mapper mapper){
+        this.clientRepository = clientRepository;
+        this.mapper = mapper;
+    }
 
     public ClientVo saveClient(ClientVo newClient){
         return mapper.parseObject(clientRepository.save(mapper.parseObject(newClient, ClientModel.class)),ClientVo.class);
